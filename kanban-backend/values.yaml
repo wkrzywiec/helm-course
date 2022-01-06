@@ -1,0 +1,30 @@
+name: kanban-backend
+group: backend
+replicaCount: 2
+container:
+  image: wkrzywiec/kanban-app:helm-course
+  port: 80
+  env: 
+    DB_SERVER: postgres
+    POSTGRES_DB: kanban
+    POSTGRES_USER: kanban
+    POSTGRES_PASSWORD: kanban
+service:
+  type: ClusterIP
+  port: 8080
+
+database:
+  enabled: true
+
+postgresql:
+  fullnameOverride: "postgres"
+  image:
+    tag: 11.14.0-debian-10-r17
+  postgresqlDatabase: "kanban"
+  postgresqlUsername: "kanban"
+  postgresqlPassword: "kanban"
+
+test:
+  enabled: true
+  connection:
+    endpoint: '/api/actuator'

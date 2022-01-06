@@ -1,0 +1,9 @@
+dependencies:
+- name: kanban-frontend
+  repository: file://../kanban-frontend
+  version: 0.1.0
+- name: kanban-backend
+  repository: file://../kanban-backend
+  version: 0.1.0
+digest: sha256:90005ecce0325047674ced3e1b539e349c0b75f47b6508588b3f1ad97a4c11de
+generated: "2022-01-02T13:51:08.9921253+01:00"

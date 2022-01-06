@@ -1,0 +1,9 @@
+Thank you for running Kanban application!
+
+To enter the Kanban UI:
+
+1. Establish port-forwarding:
+
+   > kubectl port-forward svc/kanban-frontend 8080:8080 --namespace {{ .Release.Namespace }} 
+
+2. Enter the page http://localhost:8080/

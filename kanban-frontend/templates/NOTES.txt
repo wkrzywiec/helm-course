@@ -1,0 +1,31 @@
+### 
+######
+
+{{ .Release.Name }}, version: {{ .Release.Revision }} has been installed, based on "kanban-frontend" Helm Chart!
+
+Here is a short summary of installed application:
+
+Docker base image: {{ .Values.container.image }}
+Instances count: {{ .Values.replicaCount }}
+
+
+######
+
+Useful commands:
+
+To list all Kubernetes resources created in this {{ .Release.Name }} Release:
+
+    > kubectl get all --namespace {{ .Release.Namespace }} -l app.kubernetes.io/version={{ .Release.Name }}-{{ .Release.Revision }}
+
+{{- if contains "ClusterIP" .Values.service.type }}
+
+To establish connection with your app:
+
+    > kubectl port-forward svc/{{ include "fullName" . }} {{ .Values.service.port }}:{{ .Values.service.port }} --namespace {{ .Release.Namespace }} 
+
+After that it will be reachable at the address http://localhost:8080
+
+{{- end}}
+
+######
+###

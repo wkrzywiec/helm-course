@@ -1,0 +1,5 @@
+kanban-frontend:
+  enabled: true
+
+kanban-backend:
+  enabled: true

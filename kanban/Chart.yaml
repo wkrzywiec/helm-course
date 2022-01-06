@@ -1,0 +1,17 @@
+apiVersion: v2
+name: kanban
+description: A Helm umbrella chart for kanban application
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+dependencies:
+  
+  - name: kanban-frontend
+    repository: "file://../kanban-frontend"
+    version: 0.1.0
+    condition: kanban-frontend.enabled
+
+  - name: kanban-backend
+    repository: "file://../kanban-backend"
+    version: 0.1.0
+    condition: kanban-backend.enabled

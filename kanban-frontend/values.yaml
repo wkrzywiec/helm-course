@@ -1,0 +1,14 @@
+name: 'kanban-frontend'
+group: frontend
+replicaCount: 1
+container:
+  image: wkrzywiec/kanban-ui:helm-course
+  port: 80
+service:
+  type: ClusterIP
+  port: 8080
+
+test:
+  enabled: true
+  connection:
+    endpoint: '/'

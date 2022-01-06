@@ -1,0 +1,25 @@
+app:
+  name: kanban-backend
+  group: backend
+  container:
+    image: wkrzywiec/kanban-app:helm-course
+    env: 
+      DB_SERVER: postgres
+      POSTGRES_DB: kanban
+      POSTGRES_USER: kanban
+      POSTGRES_PASSWORD: kanban
+
+database:
+  enabled: true
+
+postgresql:
+  fullnameOverride: "postgres"
+  image:
+    tag: 11.14.0-debian-10-r17
+  postgresqlDatabase: "kanban"
+  postgresqlUsername: "kanban"
+  postgresqlPassword: "kanban"
+
+test:
+  connection:
+    endpoint: '/api/actuator'

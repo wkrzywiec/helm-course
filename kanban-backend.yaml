@@ -1,5 +1,5 @@
 app:
-  # name: kanban-backend
+  name: kanban-backend
   group: backend
   container:
     image: wkrzywiec/kanban-app:helm-course

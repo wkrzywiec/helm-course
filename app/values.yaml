@@ -1,0 +1,21 @@
+app:
+  name: ''
+  group: default-app-group
+  replicaCount: 1
+  container:
+    image: add-image-here
+    port: 8080
+    
+    # an array of key-value objects that will be injected to a underneath container,
+    # it's structured like:
+    # - key: DB_SERVER
+    #   value: postgres
+    env: []
+  service:
+    type: ClusterIP
+    port: 8080
+
+test:
+  enabled: true
+  connection:
+    endpoint: '/'

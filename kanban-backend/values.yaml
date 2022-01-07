@@ -1,6 +1,6 @@
 name: kanban-backend
 group: backend
-replicaCount: 2
+replicaCount: 1
 container:
   image: wkrzywiec/kanban-app:helm-course
   port: 80

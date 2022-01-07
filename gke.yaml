@@ -1,0 +1,13 @@
+kanban-frontend:
+  service:
+    type: LoadBalancer
+
+kanban-backend:
+  database:
+    enabled: false
+  container:
+    env: 
+      DB_SERVER: YOUR-DB-SERVER
+      POSTGRES_DB: YOUR-DB-NAME
+      POSTGRES_USER: YOUR-DB-USER
+      POSTGRES_PASSWORD: YOUR-DB-PASSWORD

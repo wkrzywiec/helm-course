@@ -1,0 +1,33 @@
+helmBinary: C:\Programs\helm.exe
+
+helmDefaults:
+  wait: true
+  timeout: 600
+
+
+repositories:
+  - name: helm-app
+    url: https://wkrzywiec.github.io/helm-app
+
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
+
+releases:
+  - name: kanban-frontend
+    namespace: kanban
+    chart: ./app
+    values:
+      - kanban-frontend.yaml
+
+  - name: kanban-backend
+    namespace: kanban
+    chart: helm-app/app
+    values:
+      - kanban-backend.yaml
+
+  - name: postgres
+    namespace: kanban
+    chart: bitnami/postgresql
+    values:
+      - postgres.yaml
+

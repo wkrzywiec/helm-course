@@ -1,3 +1,7 @@
+helmDefaults:
+  wait: true
+  timeout: 600
+
 repositories:
   - name: helm-app
     url: https://wkrzywiec.github.io/helm-app

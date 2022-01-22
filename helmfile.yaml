@@ -21,6 +21,8 @@ releases:
     chart: helm-app/app
     values:
       - kanban-backend.yaml
+    needs:
+      - postgres
 
   - name: postgres
     namespace: kanban

@@ -1,6 +1,7 @@
 app:
   name: ''
   group: default-app-group
+  envName: 'default'
   replicaCount: 1
   container:
     image: add-image-here

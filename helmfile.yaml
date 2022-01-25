@@ -1,3 +1,5 @@
+helmBinary: C:\Programs\helm.exe
+
 helmDefaults:
   wait: true
   timeout: 600
@@ -11,22 +13,39 @@ repositories:
 
 releases:
   - name: kanban-frontend
-    namespace: kanban
     chart: ./app
+    namespace: kanban
     values:
       - kanban-frontend.yaml
+      - values.yaml.gotmpl
 
   - name: kanban-backend
-    namespace: kanban
     chart: helm-app/app
+    namespace: kanban
+    installed: {{ eq .Environment.Name "default" | toYaml }}
+    version: '0.1.1'
     values:
       - kanban-backend.yaml
+      - values.yaml.gotmpl
     needs:
       - postgres
 
   - name: postgres
-    namespace: kanban
     chart: bitnami/postgresql
+    namespace: kanban
+    installed: {{ eq .Environment.Name "default" | toYaml }}
     values:
       - postgres.yaml
+
+environments:
+  default:
+    kubeContext: kind-kind
+    values:
+      - dev.yaml
+
+  production:
+    kubeContext: gke_kanban-377_europe-central2_kanban-cluster
+    values:
+      - production.yaml
+    missingFileHandler: Error
 

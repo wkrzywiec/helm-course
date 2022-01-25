@@ -13,4 +13,5 @@ app.kubernetes.io/name: {{ include "app.fullName" . }}
 app.kubernetes.io/version: {{ .Release.Name }}-{{ .Release.Revision }}
 app: {{ include "app.fullName" . }}
 group: {{ .Values.app.group }}
+envName: {{ .Values.app.envName }}
 {{- end }}

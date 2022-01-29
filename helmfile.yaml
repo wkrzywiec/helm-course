@@ -26,8 +26,6 @@ releases:
     values:
       - kanban-backend.yaml
       - values.yaml.gotmpl
-    needs:
-      - postgres
 
   - name: postgres
     chart: bitnami/postgresql

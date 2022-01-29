@@ -1,2 +1,10 @@
 app:
-    envName: {{ .Values | get "envName" "default" }}
+    envName: {{ .Values.app.envName }}
+    {{- if eq .Environment.Name "production" }}
+    container:
+        env: 
+            DB_SERVER: 34ec2-1567-2543-46-123430.eu-west-1.compute.amazonaws.com
+            POSTGRES_DB: hsdw446dsv
+            POSTGRES_USER: s423nytnf
+            POSTGRES_PASSWORD: kchq2y78rymioscj8921yppaxnbv0q21ue2ye7fisjdqjio
+    {{- end }}

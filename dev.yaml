@@ -1,1 +1,2 @@
-envName: 'dev' 
+app:
+  envName: 'dev' 

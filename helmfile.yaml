@@ -22,7 +22,6 @@ releases:
   - name: kanban-backend
     chart: helm-app/app
     namespace: kanban
-    installed: {{ eq .Environment.Name "default" | toYaml }}
     version: '0.1.1'
     values:
       - kanban-backend.yaml

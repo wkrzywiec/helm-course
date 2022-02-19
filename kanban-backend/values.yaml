@@ -3,7 +3,7 @@ group: backend
 replicaCount: 1
 container:
   image: wkrzywiec/kanban-app:helm-course
-  port: 80
+  port: 8080
   env: 
     DB_SERVER: postgres
     POSTGRES_DB: kanban
